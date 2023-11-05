@@ -2,9 +2,6 @@ import subprocess
 import os
 import sys
 
-if not os.path.exists('./vid'):
-    os.makedirs('./vid')
-
 if not os.path.isfile('./yt-dlp.exe'):
     print('yt-dlp.exe not found. needs to be in root folder.')
     sys.exit()
