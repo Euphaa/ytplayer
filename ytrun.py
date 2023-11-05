@@ -12,6 +12,7 @@ if not os.path.isfile('./yt-dlp.exe'):
 while True:
     link = input('paste link here, or type "clear" to delete all the videos stored:\n> ')
     if link.lower() == 'clear':
+        print("this hasn't been made a thing yet sry ):")
         os.walk()
         continue
 
@@ -21,9 +22,6 @@ while True:
     
     for line in lines:
         print(line)
-        # if 'Permission denied:' in line:
-        #     print('insufficient folder permissions; attempting to gain access...')
-        #     os.chmod('vid', 0o777)
             
         if '[download] Destination: ' in line:
             name = line.removeprefix('[download] Destination: ')
