@@ -10,19 +10,21 @@ def runDlp(link):
     return subprocess.run(f'yt-dlp.exe {link}', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True, text=True)
 
 def delVidFiles():
+    fileTypes = ['.mp4', ]
     with os.scandir() as entries:
         for entry in entries:
             if not entry.is_file(): continue
             if not entry.name.endswith('.mp4'): continue
             os.remove(entry.name)
+    print(f'deleted all videos of type .mp4')
 
 while True:
-    link = input('paste link here, or type "clear" to delete all the videos stored; use "s" or "stop" to exit.\n> ')
+    link = input('paste link here, or type "clear" to delete all the videos stored; use "stop" to exit.\n>')
     match link:
         case 'clear':
             delVidFiles()
             continue
-        case ['stop', 's']:
+        case 'stop':
             sys.exit()
 
     result = runDlp(link)
